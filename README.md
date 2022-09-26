@@ -61,7 +61,7 @@
 Компоненты объекта Sphere:
 
 Скрипт для объекта Sphere:
-```с#
+```C#
 
 using System.Collections;
 using System.Collections.Generic;
