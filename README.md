@@ -108,15 +108,18 @@ public class IintersectionDetector : MonoBehaviour
 - Создайте три различных примера работы компонента RigidBody?
 ### Ход Работы:
 - Что произойдёт с координатами объекта, если он перестанет быть дочерним?
+
 Создадим у объекта Sphere дочерний объект Cylinder:
 
 ![](/Pics/Cylinder1.jpg)
+
 ![](/Pics/Cylinder2.jpg)
 
 Видим, что у объекта Cylinder координаты 0 0 3.
 Теперь сделаем его самостоятельным:
 
 ![](/Pics/Cylinder3.jpg)
+
 ![](/Pics/Cylinder4.jpg)
 
 При этом координаты изменились на 0 1,94 3.
