@@ -150,32 +150,48 @@ public class IintersectionDetector : MonoBehaviour
 
 
 ## Задание 3
-### Какова роль параметра Lr? Ответьте на вопрос, приведите пример выполнения кода, который подтверждает ваш ответ. В качестве эксперимента можете изменить значение параметра.
+### Реализуйте на сцене генерацию n кубиков. Число n вводится пользователем после старта сцены.
+### Ход Работы:
 
-- Перечисленные в этом туториале действия могут быть выполнены запуском на исполнение скрипт-файла, доступного [в репозитории](https://github.com/Den1sovDm1triy/hfss-scripting/blob/main/ScreatingSphereInAEDT.py).
-- Для запуска скрипт-файла откройте Ansys Electronics Desktop. Перейдите во вкладку [Automation] - [Run Script] - [Выберите файл с именем ScreatingSphereInAEDT.py из репозитория].
+Сделаем новую сцену, в которой создадим следующие объекты:
 
-```py
+![](/Pics/task3.jpg)
 
-import ScriptEnv
-ScriptEnv.Initialize("Ansoft.ElectronicsDesktop")
-oDesktop.RestoreWindow()
-oProject = oDesktop.NewProject()
-oProject.Rename("C:/Users/denisov.dv/Documents/Ansoft/SphereDIffraction.aedt", True)
-oProject.InsertDesign("HFSS", "HFSSDesign1", "HFSS Terminal Network", "")
-oDesign = oProject.SetActiveDesign("HFSSDesign1")
-oEditor = oDesign.SetActiveEditor("3D Modeler")
-oEditor.CreateSphere(
-	[
-		"NAME:SphereParameters",
-		"XCenter:="		, "0mm",
-		"YCenter:="		, "0mm",
-		"ZCenter:="		, "0mm",
-		"Radius:="		, "1.0770329614269mm"
-	], 
-)
+![](/Pics/task3_input.jpg)
 
+Код для генерации кубиков использует префаб куба и хранит ссылку на Input Field. Инспектор объекта CubeSpawner:
+
+![](/Pics/task3_inspector.jpg)
+
+Сам код для спавна кубиков:
+
+```C#
+using TMPro;
+using UnityEngine;
+
+public class CubesSpawner : MonoBehaviour
+{
+    public Object CubePrefab;
+    public TMP_InputField CubesNum;
+    public void SpawnCubes()
+    {
+        var num = int.Parse(CubesNum.text);
+        for (var i = 0; i < num; i++)
+            Instantiate(CubePrefab);
+    }
+}
 ```
+
+Запускаем сцену и вводим в поле необходимое количество кубиков:
+
+![](/Pics/task3_input.jpg)
+
+В результате видим, что кубы создаются в количестве 12 штук и разлетаются из-за компонента Rigit Body на префабе:
+
+![](/Pics/task3_cubesClones.jpg)
+
+![](/Pics/task3_generated.jpg)
+
 
 ## Выводы
 
