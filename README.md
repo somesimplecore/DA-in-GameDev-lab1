@@ -91,15 +91,15 @@ public class IintersectionDetector : MonoBehaviour
 ```
 Для проверки физики и срипта расположим куб над сферой и плоскостью:
 
-![](/Pics/Scene1.jpg)
+![](/Pics/Сцена1.jpg)
 
 Пересечение объектов:
 
-![](/Pics/Scene2.jpg)
+![](/Pics/Сцена2.jpg)
 
 Куб лежит на плоскости и при этом не проваливается:
 
-![](/Pics/Scene3.jpg)
+![](/Pics/Сцена3.jpg)
 
 
 ## Задание 2
